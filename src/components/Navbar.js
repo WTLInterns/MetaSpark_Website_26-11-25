@@ -2,10 +2,20 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <nav className="bg-white/80 backdrop-blur-lg text-gray-900 shadow-2xl sticky top-0 z-50 border-b border-gray-200/50">
@@ -13,7 +23,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-3 group">
+            <Link href="/" className="flex items-center group">
               <div className="relative w-40 h-12 transition-transform duration-300 group-hover:scale-105">
                 <Image
                   src="/images/logo.png"
@@ -23,28 +33,31 @@ export default function Navbar() {
                   priority
                 />
               </div>
+              <span className={`hidden lg:block text-lg font-semibold text-gray-900 transition-all duration-300 group-hover:text-slate-600 ml-1 ${isScrolled ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'}`}>
+                MetaSpark Engineers Pvt Ltd
+              </span>
             </Link>
           </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-1">
-            <Link href="/" className="px-4 py-2 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:scale-105 hover:text-slate-600 relative group focus:outline-none focus:ring-0 active:outline-none active:ring-0">
+            <Link href="/" className="px-4 py-2 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:scale-105 hover:text-slate-600 relative group">
               Home
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </Link>
-            <Link href="/about" className="px-4 py-2 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:scale-105 hover:text-slate-600 relative group focus:outline-none focus:ring-0 active:outline-none active:ring-0">
+            <Link href="/about" className="px-4 py-2 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:scale-105 hover:text-slate-600 relative group">
               About Us
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </Link>
-            <Link href="/services" className="px-4 py-2 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:scale-105 hover:text-slate-600 relative group focus:outline-none focus:ring-0 active:outline-none active:ring-0">
+            <Link href="/services" className="px-4 py-2 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:scale-105 hover:text-slate-600 relative group">
               Services
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </Link>
-            <Link href="/portfolio" className="px-4 py-2 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:scale-105 hover:text-slate-600 relative group focus:outline-none focus:ring-0 active:outline-none active:ring-0">
+            <Link href="/portfolio" className="px-4 py-2 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:scale-105 hover:text-slate-600 relative group">
               Portfolio
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </Link>
-            <Link href="/machinery" className="px-4 py-2 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:scale-105 hover:text-slate-600 relative group focus:outline-none focus:ring-0 active:outline-none active:ring-0">
+            <Link href="/machinery" className="px-4 py-2 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:scale-105 hover:text-slate-600 relative group">
               Machinery
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-slate-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </Link>
@@ -74,19 +87,19 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden bg-white/90 backdrop-blur-lg rounded-lg mt-2 p-4 border border-gray-200/50 shadow-xl">
             <div className="flex flex-col space-y-2">
-              <Link href="/" className="px-4 py-3 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:text-slate-600 hover:translate-x-1 focus:outline-none focus:ring-0 active:outline-none active:ring-0" onClick={() => setIsOpen(false)}>
+              <Link href="/" className="px-4 py-3 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:text-slate-600 hover:translate-x-1" onClick={() => setIsOpen(false)}>
                 Home
               </Link>
-              <Link href="/about" className="px-4 py-3 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:text-slate-600 hover:translate-x-1 focus:outline-none focus:ring-0 active:outline-none active:ring-0" onClick={() => setIsOpen(false)}>
+              <Link href="/about" className="px-4 py-3 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:text-slate-600 hover:translate-x-1" onClick={() => setIsOpen(false)}>
                 About Us
               </Link>
-              <Link href="/services" className="px-4 py-3 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:text-slate-600 hover:translate-x-1 focus:outline-none focus:ring-0 active:outline-none active:ring-0" onClick={() => setIsOpen(false)}>
+              <Link href="/services" className="px-4 py-3 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:text-slate-600 hover:translate-x-1" onClick={() => setIsOpen(false)}>
                 Services
               </Link>
-              <Link href="/portfolio" className="px-4 py-3 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:text-slate-600 hover:translate-x-1 focus:outline-none focus:ring-0 active:outline-none active:ring-0" onClick={() => setIsOpen(false)}>
+              <Link href="/portfolio" className="px-4 py-3 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:text-slate-600 hover:translate-x-1" onClick={() => setIsOpen(false)}>
                 Portfolio
               </Link>
-              <Link href="/machinery" className="px-4 py-3 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:text-slate-600 hover:translate-x-1 focus:outline-none focus:ring-0 active:outline-none active:ring-0" onClick={() => setIsOpen(false)}>
+              <Link href="/machinery" className="px-4 py-3 rounded-lg text-gray-900 font-medium transition-all duration-300 hover:text-slate-600 hover:translate-x-1" onClick={() => setIsOpen(false)}>
                 Machinery
               </Link>
               <Link href="/contact" className="px-4 py-3 rounded-lg bg-gradient-to-r from-red-500 to-orange-500 hover:from-red-600 hover:to-orange-600 transition-all duration-300 text-white font-semibold" onClick={() => setIsOpen(false)}>

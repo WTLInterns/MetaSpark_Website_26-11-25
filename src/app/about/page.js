@@ -1,9 +1,16 @@
 import Link from 'next/link';
 import WhatWeDo from '@/components/WhatWeDo';
+import TypingEffect from '@/components/TypingEffect';
+import GradientTypingEffect from '@/components/GradientTypingEffect';
+import ScrollProgress from '@/components/ScrollProgress';
+import SmoothScroll from '@/components/SmoothScroll';
 
 export default function About() {
   return (
-    <div className="min-h-screen">
+    <>
+      <ScrollProgress />
+      <SmoothScroll />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative bg-gradient-to-br from-slate-900 via-gray-800 to-slate-900 text-white py-20 overflow-hidden">
         {/* Industrial pattern overlay */}
@@ -14,7 +21,14 @@ export default function About() {
         </div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">About MetaSpark Engineers</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+              About <GradientTypingEffect 
+                texts={["MetaSpark Engineers", "Quality Excellence", "20+ Years Experience"]} 
+                className="text-transparent"
+                speed={150}
+                pauseTime={3000}
+              />
+            </h1>
             <div className="w-24 h-1 bg-slate-600 rounded-full mx-auto mb-6"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Professional sheet metal profile manufacturing and processing company with over 20 years of excellence in metal fabrication
@@ -28,7 +42,14 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Who We Are</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">
+                Who We Are: <TypingEffect 
+                  texts={["Professionals", "Experts", "Leaders", "Innovators"]} 
+                  className="text-slate-700"
+                  speed={100}
+                  pauseTime={2000}
+                />
+              </h2>
               <div className="space-y-4 text-gray-600 leading-relaxed">
                 <p>
                   <strong>The MetaSpark Engineers Private Limited</strong> is a company that rapidly transforms into a professional sheet metal profile manufacturing and processing company.
@@ -117,7 +138,14 @@ export default function About() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Quality Policy</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <TypingEffect 
+                texts={["Quality Policy", "Our Commitment", "Excellence Standard", "ISO Certified"]} 
+                className="text-gray-900"
+                speed={120}
+                pauseTime={2500}
+              />
+            </h2>
             <div className="w-32 h-1 bg-slate-600 rounded-full mx-auto mb-6"></div>
           </div>
 
@@ -225,7 +253,15 @@ export default function About() {
       <section className="py-20 bg-gradient-to-br from-gray-50 to-slate-100">
         <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Team</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              Our <GradientTypingEffect 
+                texts={["Team", "Experts", "Professionals", "Leaders"]} 
+                className="text-transparent"
+                speed={100}
+                pauseTime={2000}
+                gradientColors={["from-slate-600", "via-slate-700", "to-slate-800"]}
+              />
+            </h2>
             <div className="w-32 h-1 bg-slate-600 rounded-full mx-auto mb-6"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Meet the dedicated professionals behind MetaSpark Engineers' success
@@ -331,5 +367,6 @@ export default function About() {
         </div>
       </section>
     </div>
+    </>
   );
 }

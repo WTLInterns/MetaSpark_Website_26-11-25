@@ -1,4 +1,9 @@
 import Link from 'next/link';
+import TypingEffect from '@/components/TypingEffect';
+import GradientTypingEffect from '@/components/GradientTypingEffect';
+import ScrollProgress from '@/components/ScrollProgress';
+import SmoothScroll from '@/components/SmoothScroll';
+import AnimatedSection from '@/components/AnimatedSection';
 
 export default function Machinery() {
   const machinery = [
@@ -115,12 +120,22 @@ export default function Machinery() {
   ];
 
   return (
-    <div className="min-h-screen">
+    <>
+      <ScrollProgress />
+      <SmoothScroll />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">Our Machinery & Equipment</h1>
+            <h1 className="text-4xl lg:text-5xl font-bold mb-6">
+              Our <GradientTypingEffect 
+                texts={["Machinery", "Equipment", "Technology", "Capabilities"]} 
+                className="text-transparent"
+                speed={150}
+                pauseTime={2500}
+              /> & Equipment
+            </h1>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               State-of-the-art manufacturing equipment and precision instruments for quality fabrication
             </p>
@@ -132,39 +147,40 @@ export default function Machinery() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Equipment</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <TypingEffect 
+                texts={["Featured Equipment", "Key Machinery", "Advanced Tools", "Precision Equipment"]} 
+                className="text-gray-900"
+                speed={120}
+                pauseTime={2000}
+              />
+            </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our key machinery that enables precision manufacturing
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {machinery.filter(machine => machine.featured).map((item, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="h-32 bg-gradient-to-br from-slate-600 to-slate-700 flex items-center justify-center">
-                  <span className="text-4xl text-white">{item.image}</span>
-                </div>
-                <div className="p-4">
-                  <div className="flex items-center justify-between mb-2">
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900">{item.name}</h3>
-                      <p className="text-sm text-gray-600">{item.brand} {item.model}</p>
-                    </div>
-                    <div className="text-right">
-                      <span className="px-2 py-1 bg-slate-100 text-slate-700 rounded-full text-xs font-semibold">
-                        {item.capacity}
-                      </span>
+              <AnimatedSection key={index} direction={index % 3 === 0 ? "left" : index % 3 === 1 ? "right" : "up"}>
+                <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
+                  <div className="h-32 bg-gradient-to-br from-slate-600 to-slate-700 flex items-center justify-center">
+                    <span className="text-4xl text-white">{item.image}</span>
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.name}</h3>
+                    <p className="text-sm text-gray-600 mb-3">{item.brand} {item.model}</p>
+                    <p className="text-sm font-medium text-slate-700 mb-4">{item.capacity}</p>
+                    <div className="space-y-2">
+                      {Object.entries(item.specifications).slice(0, 3).map(([key, value]) => (
+                        <div key={key} className="flex justify-between text-sm">
+                          <span className="text-gray-600">{key}:</span>
+                          <span className="text-gray-900 font-medium">{value}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
-                  <div className="space-y-2">
-                    {Object.entries(item.specifications).slice(0, 2).map(([key, value]) => (
-                      <div key={key} className="flex justify-between text-sm">
-                        <span className="text-gray-600">{key}:</span>
-                        <span className="text-gray-900">{value}</span>
-                      </div>
-                    ))}
-                  </div>
                 </div>
-              </div>
+              </AnimatedSection>
             ))}
           </div>
         </div>
@@ -517,5 +533,6 @@ export default function Machinery() {
         </div>
       </section>
     </div>
+    </>
   );
 }

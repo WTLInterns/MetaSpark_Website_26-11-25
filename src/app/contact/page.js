@@ -1,6 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import TypingEffect from '@/components/TypingEffect';
+import GradientTypingEffect from '@/components/GradientTypingEffect';
+import ScrollProgress from '@/components/ScrollProgress';
+import SmoothScroll from '@/components/SmoothScroll';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -36,13 +40,23 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen">
+    <>
+      <ScrollProgress />
+      <SmoothScroll />
+      <div className="min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="text-center">
-            <h1 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">Contact Us</h1>
+            <h1 className="text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+              <GradientTypingEffect 
+                texts={["Contact Us", "Get In Touch", "Reach Out", "Connect"]} 
+                className="text-transparent"
+                speed={150}
+                pauseTime={2500}
+              />
+            </h1>
             <div className="w-24 h-1 bg-gray-400 rounded-full mx-auto mb-6"></div>
             <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               Get in touch with our expert team to discuss your metal fabrication requirements and discover how we can bring your projects to life
@@ -55,7 +69,14 @@ export default function Contact() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">
+              <TypingEffect 
+                texts={["Get In Touch", "Contact Us", "Reach Out", "Send Message"]} 
+                className="text-gray-900"
+                speed={120}
+                pauseTime={2000}
+              />
+            </h2>
             <div className="w-16 h-1 bg-gray-300 rounded-full mx-auto mb-4"></div>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Fill out the form below or visit our factory to discuss your requirements
@@ -230,7 +251,14 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="bg-white rounded-2xl shadow-xl p-12 text-center">
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-4xl font-bold text-gray-900 mb-6">Ready to Start Your Project?</h2>
+              <h2 className="text-4xl font-bold text-gray-900 mb-6">
+                <TypingEffect 
+                  texts={["Ready to Start Your Project?", "Let's Work Together", "Start Your Journey", "Begin Today"]} 
+                  className="text-gray-900"
+                  speed={120}
+                  pauseTime={2000}
+                />
+              </h2>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
                 Contact us today to discuss your requirements and get a competitive quote from our expert team
               </p>
@@ -253,5 +281,6 @@ export default function Contact() {
         </div>
       </section>
     </div>
+    </>
   );
 }

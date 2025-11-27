@@ -65,30 +65,38 @@ export default function WhatWeDo() {
             <div className="relative h-[500px]">
               {/* Main Image - Top Left */}
               <div className="absolute top-0 left-0 w-70 h-70 bg-white rounded-lg shadow-xl border-4 border-white overflow-hidden transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                  <span className="text-gray-500 text-sm">Industrial Design</span>
-                </div>
+                <img 
+                  src="https://picsum.photos/seed/industrial-metal-design/300/300.jpg" 
+                  alt="Industrial Design" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Second Image - Top Right */}
               <div className="absolute top-1 right-1 w-75 h-50 bg-white rounded-lg shadow-xl border-4 border-white overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-300">
-                <div className="w-full h-full bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center">
-                  <span className="text-blue-600 text-sm">Cutting Services</span>
-                </div>
+                <img 
+                  src="https://picsum.photos/seed/metal-cutting-services/350/250.jpg" 
+                  alt="Cutting Services" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Third Image - Bottom Left */}
               <div className="absolute bottom-1 left-1 w-75 h-50 bg-white rounded-lg shadow-xl border-4 border-white overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-300">
-                <div className="w-full h-full bg-gradient-to-br from-green-200 to-green-300 flex items-center justify-center">
-                  <span className="text-green-600 text-sm">Bending Services</span>
-                </div>
+                <img 
+                  src="https://picsum.photos/seed/metal-bending-services/350/250.jpg" 
+                  alt="Bending Services" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Fourth Image - Bottom Right */}
               <div className="absolute bottom-0 right-0 w-70 h-70 bg-white rounded-lg shadow-xl border-4 border-white overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-                <div className="w-full h-full bg-gradient-to-br from-purple-200 to-purple-300 flex items-center justify-center">
-                  <span className="text-purple-600 text-sm">Powder Coating</span>
-                </div>
+                <img 
+                  src="https://picsum.photos/seed/powder-coating-metal/300/300.jpg" 
+                  alt="Powder Coating" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Decorative Elements */}
@@ -113,30 +121,38 @@ export default function WhatWeDo() {
             <div className="relative h-[500px]">
               {/* Main Image - Top Left */}
               <div className="absolute top-0 left-0 w-70 h-70 bg-white rounded-lg shadow-xl border-4 border-white overflow-hidden transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                <div className="w-full h-full bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                  <span className="text-gray-500 text-sm">Architectural Griils</span>
-                </div>
+                <img 
+                  src="https://picsum.photos/seed/architectural-metal-grills/300/300.jpg" 
+                  alt="Architectural Grills" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Second Image - Top Right */}
               <div className="absolute top-1 right-1 w-75 h-50 bg-white rounded-lg shadow-xl border-4 border-white overflow-hidden transform rotate-2 hover:rotate-0 transition-transform duration-300">
-                <div className="w-full h-full bg-gradient-to-br from-blue-200 to-blue-300 flex items-center justify-center">
-                  <span className="text-blue-600 text-sm">Fabrication Works</span>
-                </div>
+                <img 
+                  src="https://picsum.photos/seed/metal-fabrication-works/350/250.jpg" 
+                  alt="Fabrication Works" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Third Image - Bottom Left */}
               <div className="absolute bottom-1 left-1  w-75 h-50 bg-white rounded-lg shadow-xl border-4 border-white overflow-hidden transform rotate-1 hover:rotate-0 transition-transform duration-300">
-                <div className="w-full h-full bg-gradient-to-br from-green-200 to-green-300 flex items-center justify-center">
-                  <span className="text-green-600 text-sm">VMC Machining</span>
-                </div>
+                <img 
+                  src="https://picsum.photos/seed/vmc-machining-services/350/250.jpg" 
+                  alt="VMC Machining" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Fourth Image - Bottom Right */}
               <div className="absolute bottom-0 right-0 w-70 h-70 bg-white rounded-lg shadow-xl border-4 border-white overflow-hidden transform -rotate-2 hover:rotate-0 transition-transform duration-300">
-                <div className="w-full h-full bg-gradient-to-br from-purple-200 to-purple-300 flex items-center justify-center">
-                  <span className="text-purple-600 text-sm">Assembly</span>
-                </div>
+                <img 
+                  src="https://picsum.photos/seed/metal-assembly-parts/300/300.jpg" 
+                  alt="Assembly" 
+                  className="w-full h-full object-cover"
+                />
               </div>
               
               {/* Decorative Elements */}

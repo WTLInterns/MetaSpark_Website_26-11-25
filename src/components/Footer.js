@@ -7,7 +7,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Company Info */}
-          <div className="col-span-1 md:col-span-2">
+          <div className="col-span-1 md:col-span-2 relative">
             <div className="flex items-center space-x-3 mb-4">
               <div className="relative w-12 h-12">
                 <Image
@@ -33,10 +33,12 @@ export default function Footer() {
                 <span className="text-white text-sm">in</span>
               </div>
             </div>
+            {/* Vertical Line 1 */}
+            <div className="hidden md:block absolute top-0 -right-4 w-px h-45 bg-gray-700"></div>
           </div>
 
           {/* Quick Links */}
-          <div>
+          <div className="relative">
             <h3 className="font-bold text-lg mb-4">Quick Links</h3>
             <ul className="space-y-2">
               <li><Link href="/about" className="text-gray-400 hover:text-red-400 transition-colors">About Us</Link></li>
@@ -45,6 +47,8 @@ export default function Footer() {
               <li><Link href="/machinery" className="text-gray-400 hover:text-red-400 transition-colors">Machinery</Link></li>
               <li><Link href="/contact" className="text-gray-400 hover:text-red-400 transition-colors">Contact</Link></li>
             </ul>
+            {/* Vertical Line 2 */}
+            <div className="hidden md:block absolute top-0 -right-4 w-px h-45 bg-gray-700"></div>
           </div>
 
           {/* Contact Info */}
