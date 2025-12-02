@@ -350,8 +350,20 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-700 to-slate-800 text-white">
-        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 text-center">
+      <section className="py-20 bg-gradient-to-r from-slate-700 to-slate-800 text-white relative overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+          >
+            <source src="/images/enggved.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6 text-center relative z-10">
           <h2 className="text-4xl font-bold mb-4">Ready to Work With Us?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Join our growing list of satisfied clients and experience the MetaSpark difference

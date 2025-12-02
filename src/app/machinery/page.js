@@ -516,8 +516,20 @@ export default function Machinery() {
 
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-700 to-slate-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-gradient-to-r from-slate-700 to-slate-800 text-white relative overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+          >
+            <source src="/images/enggved.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-bold mb-4">Ready to Leverage Our Capabilities?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Our advanced equipment and skilled team are ready to handle your next project

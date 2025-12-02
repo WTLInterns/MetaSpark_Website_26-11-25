@@ -162,7 +162,7 @@ export default function Services() {
                   <div className="relative mb-6">
                     <div className="w-full h-72 bg-white rounded-sm overflow-hidden border border-gray-400 shadow-sm">
                       <img 
-                        src="https://picsum.photos/seed/fiber-laser-cutting-machine/800/400.jpg" 
+                        src="/images/industrialdesign.png" 
                         alt="Fiber Laser Cutting Machine" 
                         className="w-full h-full object-cover"
                       />
@@ -173,14 +173,14 @@ export default function Services() {
                   <div className="grid grid-cols-2 gap-4">
                     <div className="w-full h-40 bg-white rounded-sm overflow-hidden border border-gray-400 shadow-sm">
                       <img 
-                        src="https://picsum.photos/seed/industrial-metal-components/400/200.jpg" 
+                        src="/images/industrialdesign1.jpg" 
                         alt="Industrial Metal Components" 
                         className="w-full h-full object-cover"
                       />
                     </div>
                     <div className="w-full h-40 bg-white rounded-sm overflow-hidden border border-gray-400 shadow-sm">
                       <img 
-                        src="https://picsum.photos/seed/steel-manufacturing/400/200.jpg" 
+                        src="/images/industrialdesign2.jpg" 
                         alt="Steel Manufacturing" 
                         className="w-full h-full object-cover"
                       />
@@ -224,29 +224,60 @@ export default function Services() {
                           ))}
                         </div>
                       </AnimatedSection>
-                      {/* Right: Image */}
-                      <AnimatedSection direction="right">
-                        <div className="rounded-2xl overflow-hidden border border-gray-300 shadow-lg h-80">
-                          <img 
-                            src={`https://picsum.photos/seed/${service.title.toLowerCase().replace(/\s+/g, '-')}-metal-fabrication/600/400.jpg`} 
-                            alt={service.title} 
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      </AnimatedSection>
+                      {/* Right: Video */}
+                      {index === 0 ? (
+                        <AnimatedSection direction="right">
+                          <div className="rounded-2xl overflow-hidden h-100">
+                            <video 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              className="w-full h-full object-cover"
+                            >
+                              <source src="/images/service1.mp4" type="video/mp4" />
+                            </video>
+                          </div>
+                        </AnimatedSection>
+                      ) : (
+                        <AnimatedSection direction="right">
+                          <div className="rounded-2xl overflow-hidden border border-gray-300 shadow-lg h-80">
+                            <img 
+                              src={`https://picsum.photos/seed/${service.title.toLowerCase().replace(/\s+/g, '-')}-metal-fabrication/600/400.jpg`} 
+                              alt={service.title} 
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </AnimatedSection>
+                      )}
                     </>
                   ) : (
                     <>
-                      {/* Left: Image */}
-                      <AnimatedSection direction="left">
-                        <div className="rounded-2xl overflow-hidden border border-gray-300 shadow-lg h-80">
-                          <img 
-                            src={`https://picsum.photos/seed/${service.title.toLowerCase().replace(/\s+/g, '-')}-metal-fabrication/600/400.jpg`} 
-                            alt={service.title} 
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                      </AnimatedSection>
+                      {index === 1 ? (
+                        <AnimatedSection direction="left">
+                          <div className="rounded-2xl overflow-hidden h-100">
+                            <video 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              className="w-full h-full object-cover"
+                            >
+                              <source src="/images/service2.mp4" type="video/mp4" />
+                            </video>
+                          </div>
+                        </AnimatedSection>
+                      ) : (
+                        <AnimatedSection direction="left">
+                          <div className="rounded-2xl overflow-hidden border border-gray-300 shadow-lg h-80">
+                            <img 
+                              src={`https://picsum.photos/seed/${service.title.toLowerCase().replace(/\s+/g, '-')}-metal-fabrication/600/400.jpg`} 
+                              alt={service.title} 
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </AnimatedSection>
+                      )}
                       {/* Right: Content */}
                       <AnimatedSection direction="right">
                         <div className={`w-20 h-20 bg-gradient-to-r ${getColorClasses(service.color)} rounded-2xl flex items-center justify-center mb-6`}>
@@ -274,8 +305,20 @@ export default function Services() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-slate-700 to-slate-800 text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <section className="py-20 bg-gradient-to-r from-slate-700 to-slate-800 text-white relative overflow-hidden">
+          {/* Background Video */}
+          <div className="absolute inset-0 z-0">
+            <video 
+              autoPlay 
+              loop 
+              muted 
+              playsInline
+              className="w-full h-full object-cover opacity-30"
+            >
+              <source src="/images/enggved.mp4" type="video/mp4" />
+            </video>
+          </div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
             <h2 className="text-4xl font-bold mb-4">Need Custom Fabrication Solutions?</h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto">
               Get in touch with our team to discuss your specific requirements and get a personalized quote

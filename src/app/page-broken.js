@@ -251,7 +251,7 @@ export default function Home() {
             <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Why Choose Us</h2>
             <div className="w-32 h-1 bg-gradient-to-r from-slate-600 to-slate-700 rounded-full mx-auto mb-4"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">Discover the advantages that make MetaSpark Engineers your trusted partner</p>
-          </div>
+          </AnimatedSection>
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Side - Why Us Text */}
@@ -361,6 +361,7 @@ export default function Home() {
                 </div>
               </FloatingElement>
             </div>
+            </AnimatedSection>
           </div>
         </div>
       </AnimatedSection>
@@ -398,8 +399,20 @@ export default function Home() {
       </AnimatedSection>
 
       {/* CTA Section */}
-      <AnimatedSection className="py-20 bg-gradient-to-r from-slate-700 to-slate-800 text-white" direction="scale">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <AnimatedSection className="py-20 bg-gradient-to-r from-slate-700 to-slate-800 text-white relative overflow-hidden" direction="scale">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+          >
+            <source src="/images/enggved.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <AnimatedSection direction="fade" delay={0.2}>
           <h2 className="text-4xl font-bold mb-4">Ready to Start Your Project?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
@@ -416,7 +429,6 @@ export default function Home() {
           </AnimatedSection>
         </div>
       </AnimatedSection>
-    </div>
     </>
   );
 }

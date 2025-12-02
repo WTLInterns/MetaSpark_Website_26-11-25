@@ -15,7 +15,7 @@ export default function Portfolio() {
       title: "Automotive Components",
       category: "Automotive",
       description: "Precision sheet metal components for automotive assembly lines",
-      image: "🚗",
+      image: "/api/placeholder/400/300?text=Automotive",
       technologies: ["Laser Cutting", "CNC Bending", "Welding"],
       client: "Leading Automotive Manufacturer",
       duration: "3 months",
@@ -26,7 +26,7 @@ export default function Portfolio() {
       title: "Industrial Machine Parts",
       category: "General Engineering",
       description: "Custom fabricated parts for heavy machinery",
-      image: "⚙️",
+      image: "/api/placeholder/400/300?text=Engineering",
       technologies: ["VMC Machining", "Fabrication", "Assembly"],
       client: "Industrial Equipment Co.",
       duration: "2 months",
@@ -37,7 +37,7 @@ export default function Portfolio() {
       title: "Textile Machinery Components",
       category: "Textile",
       description: "Precision components for textile manufacturing equipment",
-      image: "🧵",
+      image: "/api/placeholder/400/300?text=Textile",
       technologies: ["Precision Cutting", "Bending", "Powder Coating"],
       client: "Textile Solutions Ltd.",
       duration: "4 months",
@@ -48,7 +48,7 @@ export default function Portfolio() {
       title: "Power Plant Equipment",
       category: "Power Plant",
       description: "Heavy-duty components for power generation systems",
-      image: "⚡",
+      image: "/api/placeholder/400/300?text=PowerPlant",
       technologies: ["Heavy Fabrication", "Welding", "Assembly"],
       client: "Power Generation Corp.",
       duration: "6 months",
@@ -59,7 +59,7 @@ export default function Portfolio() {
       title: "Agricultural Machinery Parts",
       category: "Agricultural",
       description: "Durable components for farming equipment",
-      image: "🌾",
+      image: "/api/placeholder/400/300?text=Agriculture",
       technologies: ["Laser Cutting", "Bending", "Surface Treatment"],
       client: "AgriTech Solutions",
       duration: "2 months",
@@ -70,7 +70,7 @@ export default function Portfolio() {
       title: "Construction Equipment",
       category: "Earth Moving",
       description: "Robust components for construction machinery",
-      image: "🚜",
+      image: "/api/placeholder/400/300?text=Construction",
       technologies: ["Heavy Fabrication", "Welding", "Heat Treatment"],
       client: "Construction Equipment Co.",
       duration: "5 months",
@@ -81,7 +81,7 @@ export default function Portfolio() {
       title: "Custom Enclosures",
       category: "General Engineering",
       description: "Custom electrical and mechanical enclosures",
-      image: "📦",
+      image: "/api/placeholder/400/300?text=Enclosures",
       technologies: ["Precision Cutting", "Bending", "Assembly"],
       client: "Electrical Systems Ltd.",
       duration: "1 month",
@@ -92,7 +92,7 @@ export default function Portfolio() {
       title: "Stainless Steel Fabrication",
       category: "Food Processing",
       description: "Hygienic stainless steel equipment for food industry",
-      image: "🍽️",
+      image: "/api/placeholder/400/300?text=StainlessSteel",
       technologies: ["TIG Welding", "Polishing", "Fabrication"],
       client: "Food Processing Co.",
       duration: "3 months",
@@ -150,7 +150,7 @@ export default function Portfolio() {
             {categories.map((category) => (
               <button
                 key={category}
-                className="px-6 py-2 rounded-full border border-gray-300 hover:bg-slate-600 hover:text-white hover:border-slate-600 transition-colors duration-200"
+                className="px-6 py-2 rounded-full border border-gray-300 hover:bg-slate-600 hover:text-black hover:border-slate-600 transition-colors duration-200 text-black"
               >
                 {category}
               </button>
@@ -207,7 +207,14 @@ export default function Portfolio() {
                   <div key={project.id} className="w-1/3 flex-shrink-0">
                     <div className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:scale-105 h-[400px] flex flex-col">
                       <div className="h-44 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center relative p-4">
-                        <span className="text-5xl">{project.image}</span>
+                        <img 
+                          src={project.image} 
+                          alt={project.title}
+                          className="w-full h-full object-cover rounded-lg"
+                          onError={(e) => {
+                            e.target.src = `https://picsum.photos/seed/${project.category}${project.id}/400/300.jpg`;
+                          }}
+                        />
                         <div className="absolute top-3 right-3">
                           <span className="bg-slate-700 text-white text-xs px-3 py-1 rounded-full font-medium">
                             {project.category}
@@ -299,8 +306,15 @@ export default function Portfolio() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {projects.map((project) => (
               <div key={project.id} className="bg-gray-50 rounded-xl overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-                  <span className="text-5xl">{project.image}</span>
+                <div className="h-48 bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center relative overflow-hidden">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover"
+                    onError={(e) => {
+                      e.target.src = `https://picsum.photos/seed/${project.category}${project.id}/400/300.jpg`;
+                    }}
+                  />
                 </div>
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
@@ -420,8 +434,20 @@ export default function Portfolio() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-slate-700 to-slate-800 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="py-20 bg-gradient-to-r from-slate-700 to-slate-800 text-white relative overflow-hidden">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video 
+            autoPlay 
+            loop 
+            muted 
+            playsInline
+            className="w-full h-full object-cover opacity-30"
+          >
+            <source src="/images/enggved.mp4" type="video/mp4" />
+          </video>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-4xl font-bold mb-4">Have a Project in Mind?</h2>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
             Let's discuss your requirements and create something exceptional together
