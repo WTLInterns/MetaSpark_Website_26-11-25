@@ -18,7 +18,7 @@ export default function Machinery() {
         "Materials": "Mild Steel, Stainless Steel, Aluminum",
         "Accuracy": "±0.1 mm"
       },
-      image: "🔥",
+      image: "/images/CNCLaserCutting.jpg",
       featured: true
     },
     {
@@ -32,7 +32,7 @@ export default function Machinery() {
         "CNC Control": "Amada NC9",
         "Backgauge": "1000 mm"
       },
-      image: "📐",
+      image: "/images/CNCPressBrake.jpg",
       featured: true
     },
     {
@@ -60,7 +60,7 @@ export default function Machinery() {
         "Tool Capacity": "24 tools",
         "Accuracy": "±0.005 mm"
       },
-      image: "⚙️",
+      image: "/images/VMCMachine.jpg",
       featured: true
     },
     {
@@ -163,8 +163,12 @@ export default function Machinery() {
             {machinery.filter(machine => machine.featured).map((item, index) => (
               <AnimatedSection key={index} direction={index % 3 === 0 ? "left" : index % 3 === 1 ? "right" : "up"}>
                 <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300">
-                  <div className="h-32 bg-gradient-to-br from-slate-600 to-slate-700 flex items-center justify-center">
-                    <span className="text-4xl text-white">{item.image}</span>
+                  <div className="h-48 overflow-hidden">
+                    <img 
+                      src={item.image} 
+                      alt={item.name}
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-2">{item.name}</h3>

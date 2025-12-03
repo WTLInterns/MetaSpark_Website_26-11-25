@@ -47,22 +47,7 @@ export default function Services() {
       icon: "🔧",
       color: "orange"
     },
-    {
-      title: "VMC Machining",
-      description: "Precision vertical machining center operations for complex parts",
-      detailedDescription: "Advanced VMC machining capabilities for high-precision components. Our vertical machining centers handle complex geometries, tight tolerances, and various materials with exceptional accuracy.",
-      features: ["High Precision", "Complex Geometry", "Multiple Materials", "Quality Control"],
-      icon: "⚙️",
-      color: "indigo"
-    },
-    {
-      title: "Assemblies",
-      description: "Complete product assembly and integration services",
-      detailedDescription: "Full assembly services from component integration to final product testing. We ensure proper fit, function, and quality of assembled products through systematic processes and quality checks.",
-      features: ["Component Assembly", "Testing", "Quality Assurance", "Packaging"],
-      icon: "",
-      color: "teal"
-    }
+   
   ];
 
   const getColorClasses = (color) => {
@@ -160,7 +145,11 @@ export default function Services() {
                 <div className="relative">
                   {/* Main Large Image with border */}
                   <div className="relative mb-6">
-                    <div className="w-full h-72 bg-white rounded-sm overflow-hidden border border-gray-400 shadow-sm">
+                    <div className="w-full h-72 bg-white rounded-sm overflow-hidden 
+                    
+                    
+                    
+                    ">
                       <img 
                         src="/images/industrialdesign.png" 
                         alt="Fiber Laser Cutting Machine" 
@@ -208,9 +197,6 @@ export default function Services() {
                     <>
                       {/* Left: Content */}
                       <AnimatedSection direction="left">
-                        <div className={`w-20 h-20 bg-gradient-to-r ${getColorClasses(service.color)} rounded-2xl flex items-center justify-center mb-6`}>
-                          <span className="text-3xl">{service.icon}</span>
-                        </div>
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
                         <p className="text-gray-600 mb-6 leading-relaxed">{service.detailedDescription}</p>
                         <div className="grid grid-cols-2 gap-4">
@@ -225,7 +211,21 @@ export default function Services() {
                         </div>
                       </AnimatedSection>
                       {/* Right: Video */}
-                      {index === 0 ? (
+                      {index === 4 ? (
+                        <AnimatedSection direction="right">
+                          <div className="rounded-2xl overflow-hidden h-100">
+                            <video 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              className="w-full h-full object-cover"
+                            >
+                              <source src="/images/service5.mp4" type="video/mp4" />
+                            </video>
+                          </div>
+                        </AnimatedSection>
+                      ) : index === 0 ? (
                         <AnimatedSection direction="right">
                           <div className="rounded-2xl overflow-hidden h-100">
                             <video 
@@ -236,6 +236,20 @@ export default function Services() {
                               className="w-full h-full object-cover"
                             >
                               <source src="/images/service1.mp4" type="video/mp4" />
+                            </video>
+                          </div>
+                        </AnimatedSection>
+                      ) : index === 2 ? (
+                        <AnimatedSection direction="right">
+                          <div className="rounded-2xl overflow-hidden h-100">
+                            <video 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              className="w-full h-full object-cover"
+                            >
+                              <source src="/images/service3.mp4" type="video/mp4" />
                             </video>
                           </div>
                         </AnimatedSection>
@@ -253,7 +267,21 @@ export default function Services() {
                     </>
                   ) : (
                     <>
-                      {index === 1 ? (
+                      {index === 3 ? (
+                        <AnimatedSection direction="left">
+                          <div className="rounded-2xl overflow-hidden h-100">
+                            <video 
+                              autoPlay 
+                              loop 
+                              muted 
+                              playsInline
+                              className="w-full h-full object-cover"
+                            >
+                              <source src="/images/service4.mp4" type="video/mp4" />
+                            </video>
+                          </div>
+                        </AnimatedSection>
+                      ) : index === 1 ? (
                         <AnimatedSection direction="left">
                           <div className="rounded-2xl overflow-hidden h-100">
                             <video 
@@ -280,9 +308,6 @@ export default function Services() {
                       )}
                       {/* Right: Content */}
                       <AnimatedSection direction="right">
-                        <div className={`w-20 h-20 bg-gradient-to-r ${getColorClasses(service.color)} rounded-2xl flex items-center justify-center mb-6`}>
-                          <span className="text-3xl">{service.icon}</span>
-                        </div>
                         <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
                         <p className="text-gray-600 mb-6 leading-relaxed">{service.detailedDescription}</p>
                         <div className="grid grid-cols-2 gap-4">
